@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <link rel="stylesheet" type="text/css" href="/css/main.css" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>
+      Calculadora fácil de proporção de tela (ex. redimensionar imagens)
+    </title>
+    <meta
+      property="og:title"
+      content="Calculadora fácil de proporção de tela (ex. redimensionar imagens)"
+    />
+    <meta
+      name="description"
+      content="Uma ferramenta gratuita fácil de usar para ajudá-lo a redimensionar imagens e vídeos, mantendo a aparência: sua proporção. Simples, eficaz e comprovadamente preciso."
+    />
+    <meta
+      name="twitter:description"
+      content="Uma ferramenta gratuita fácil de usar para ajudá-lo a redimensionar imagens e vídeos, mantendo a aparência: sua proporção. Simples, eficaz e comprovadamente preciso."
+    />
+    <meta
+      property="og:description"
+      content="Uma ferramenta gratuita fácil de usar para ajudá-lo a redimensionar imagens e vídeos, mantendo a aparência: sua proporção. Simples, eficaz e comprovadamente preciso."
+    />
+    <meta
+      property="og:url"
+      content="https://aspect-ratio-calculadora.glitch.me/"
+    />
+    <link rel="canonical" href="https://aspect-ratio-calculadora.glitch.me/" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="https://s3-us-west-2.amazonaws.com/mark-bridges.com/AppIcons/Aspect%20Ratio%20Calculator%20Icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="https://s3-us-west-2.amazonaws.com/mark-bridges.com/AppIcons/Aspect%20Ratio%20Calculator%20Icon.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="https://s3-us-west-2.amazonaws.com/mark-bridges.com/AppIcons/Aspect%20Ratio%20Calculator%20Icon.png"
+      sizes="16x16"
+    />
+    <link rel="manifest" href="/manifest.json" />
+    <link
+      rel="mask-icon"
+      href="https://web.archive.org/web/20190418122121im_/https://eikhart.com/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <meta name="theme-color" content="#ffffff" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="ankeiler">
+        <h1>Calculadora fácil de proporção de tela</h1>
+        <p>
+          Uma calculadora de proporção de aspecto fácil de usar. Gratuito para
+          usar, útil para redimensionar imagens, ecrãs e vídeos.
+        </p>
+      </div>
+      <div class="row">
+        <p>
+          Use a ferramenta imediatamente para obter resultados rápidos (ou pule
+          primeiro para a explicação abaixo).
+        </p>
+      </div>
+      <div class="row">
+        <div class="dark tool">
+          <form id="old">
+            <h3>1. Coloque antiga largura & altura:</h3>
+            <p>
+              <input
+                title=""
+                placeholder="Antiga Largura"
+                class="changeable old"
+                type="number"
+                min="0"
+                value=""
+                name="width"
+                required
+              />
+              <span style="display: none">Antiga Largura</span>
+              <input
+                title=""
+                placeholder="Antiga Altura"
+                class="changeable old"
+                type="number"
+                min="0"
+                value=""
+                name="height"
+                required
+              />
+              <span style="display: none">Antiga Altura</span>
+            </p>
+          </form>
+
+          <form id="dimension">
+            <h3>2. Escolha uma nova dimensão que você já conhece:</h3>
+            <div data-toggle="buttons" class="row">
+              <label class="button button-primary">
+                <span class="label-body">Nova Largura</span>
+                <input
+                  type="radio"
+                  name="new"
+                  value="width"
+                  data-alt="altura"
+                  checked
+                />
+              </label>
+              <span> ou </span>
+              <label class="button button-primary">
+                <span class="label-body">Nova Altura</span>
+                <input
+                  type="radio"
+                  name="new"
+                  value="height"
+                  data-alt="largura"
+                />
+              </label>
+            </div>
+          </form>
+
+          <form id="new">
+            <h3>3. Coloque a nova largura/altura:</h3>
+            <input
+              title=""
+              id="newDimensionInput"
+              class="changeable"
+              type="number"
+              min="0"
+              value=""
+              name="value"
+            />
+          </form>
+
+          <div id="other">
+            <h2>4. Veja! A nova <span id="otherDimension"></span>:</h2>
+            <div id="otherValue"></div>
+          </div>
+
+          <div id="ratio">
+            <h2>5. Proporção (em decimais):</h2>
+            <div id="ratioDecimals"></div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <h2 style="margin-top: 10px">Como isso funciona</h2>
+        <p>
+          Se você deseja redimensionar algo (como uma imagem), mas deseja
+          preservar a aparência, você precisa saber algo chamado 'proporção de
+          aspecto'. Esta é basicamente a relação entre a largura e a altura.
+        </p>
+        <p>
+          Mas você não quer saber sobre a matemática por trás disso! Você só
+          quer a resposta!
+        </p>
+        <p>É aí que essa ferramenta o ajuda:</p>
+        <ol>
+          <li>
+            Primeiro, insira a largura e a altura antigas. A ferramenta usa para
+            calcular a proporção de aspecto.
+          </li>
+          <li>
+            Em seguida, escolha a nova dimensão que você já conhece (nova
+            largura ou nova altura)
+          </li>
+          <li>Agora, insira o valor dessa dimensão</li>
+          <li>
+            Por fim, a ferramenta informará o valor da outra dimensão, com base
+            na proporção da imagem antiga
+          </li>
+        </ol>
+        <p>
+          É isso! A ferramenta informará a nova largura ou altura (dependendo do
+          que você escolheu na etapa 2).
+        </p>
+        <h2>O que é 'Proporção de Tela'</h2>
+        <p>A Wikipédia explica assim:</p>
+      </div>
+      <div class="row">
+        <blockquote>
+          <p>
+            Proporção de tela de uma imagem bidimensional ("aspect ratio" em
+            inglês) é a relação matemática entre as suas duas dimensões, em
+            geral obtida pela divisão entre as medidas da largura e da altura.
+            Pode ser representada por um número decimal com duas casas (1,33;
+            1,66; etc.) ou pela relação entre dois números inteiros (4:3; 5:3;
+            etc.).
+          </p>
+          <cite>Wikipedia/Proporção_de_tela</cite>
+        </blockquote>
+      </div>
+      <div class="row">
+        <h2>Fórmula de proporção de tela</h2>
+        <p>
+          Existe uma fórmula simples para calcular as proporções:
+          <code>aspectRatio = (antigaLargura / antigaAltura)</code>. Por
+          exemplo, se você quiser saber a nova altura de um objeto, você pode
+          usar: <code>novaAltura = (novaLargura / aspectRatio)</code>, e se
+          precisar da nova largura de um objeto, você pode usar:
+          <code>novaLargura = (novaAltura * aspectRatio)</code>.
+        </p>
+        <p>
+          Portanto, primeiro você precisa saber a proporção da tela, dividindo a
+          largura antiga pela altura anterior, e então você pode usar isso para
+          calcular a nova largura ou a nova altura.
+        </p>
+      </div>
+      <h2>O que vêm a seguir?</h2>
+      <p>
+        Esta ferramenta foi copiada de um site inglês (atualmente, esse site
+        permanece desligado e não tem previsão para estar ligado), melhorada e
+        traduzida.
+      </p>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        var $old = $("#old");
+        var $dimension = $("#dimension");
+        var $new = $("#new");
+        var $other = $("#other");
+        var $ratio = $("#ratio");
+        let $newDimensionInput = $("#newDimensionInput");
+        var $newDimension = $("#newDimension");
+        var $otherDimension = $("#otherDimension");
+        var $divOtherValue = $("#otherValue");
+        var $divRatioDecimals = $("#ratioDecimals");
+        setCSS($divOtherValue);
+        setCSS($divRatioDecimals);
+        if (!$.trim($divOtherValue.html()).length) {
+          $other.hide();
+          $ratio.hide();
+        }
+        var $chosen = $("input[name=new]:checked", $dimension).val();
+        var $chosenAlt = $("input[name=new]:checked", $dimension).attr(
+          "data-alt"
+        );
+        $newDimension.text($chosen);
+        $otherDimension.text($chosenAlt);
+        $newDimensionInput.attr(
+          "placeholder",
+          "Nova " +
+            $chosen.replace("width", "largura").replace("height", "altura")
+        );
+        var $oldWidth = $old.find("input[name=width]").val();
+        var $oldHeight = $old.find("input[name=height]").val();
+        var $newValue = $new.find("input[name=value]").val();
+        function calculateOtherValue(
+          $chosen,
+          $newValue,
+          $oldWidth,
+          $oldHeight
+        ) {
+          if (
+            parseFloat($newValue) &&
+            parseFloat($oldWidth) &&
+            parseFloat($oldHeight)
+          ) {
+            var $aspectRatio = $oldWidth / $oldHeight;
+            if ($chosen === "width") {
+              return $newValue / $aspectRatio;
+            } else {
+              return $newValue * $aspectRatio;
+            }
+          } else return "";
+        }
+
+        function calculateAspectRatioInDecimals($oldWidth, $oldHeight) {
+          if (parseFloat($oldWidth) && parseFloat($oldHeight)) {
+            var $largest = Math.max.apply(Math, [$oldWidth, $oldHeight]);
+            if ($largest > 1) {
+              var $smallestWidth = $oldWidth / $largest;
+              var $smallestHeight = $oldHeight / $largest;
+              return $smallestWidth + " : " + $smallestHeight;
+            } else {
+              return false;
+            }
+          } else return false;
+        }
+
+        function setCSS(container) {
+          var count = container.text().length;
+          var y = 50 / count;
+          container.css("padding-top", "1rem");
+          container.css("font-size", y + "rem");
+          container.css("line-height", y * 0.6 + "rem");
+          container.css("height", y + "rem");
+          container.css("color", "#fff");
+        }
+        var $otherValue = calculateOtherValue(
+          $chosen,
+          $newValue,
+          $oldWidth,
+          $oldHeight
+        );
+        var $ratioDecimals = calculateAspectRatioInDecimals(
+          $oldWidth,
+          $oldHeight
+        );
+        $divOtherValue.text($otherValue);
+        $divRatioDecimals.text($ratioDecimals);
+        $($dimension.find("input")).on("change paste keyup input", function () {
+          $chosen = $("input[name=new]:checked", $dimension).val();
+          $newDimension.text($chosen);
+          $newDimensionInput.attr("placeholder", "Nova Altura");
+          $chosenAlt = $("input[name=new]:checked", $dimension).attr(
+            "data-alt"
+          );
+          $otherDimension.text($chosenAlt);
+          $otherValue = calculateOtherValue(
+            $chosen,
+            $newValue,
+            $oldWidth,
+            $oldHeight
+          );
+          $ratioDecimals = calculateAspectRatioInDecimals(
+            $oldWidth,
+            $oldHeight
+          );
+          $divOtherValue.text($otherValue);
+          $divRatioDecimals.text($ratioDecimals);
+          setCSS($divOtherValue);
+          setCSS($divRatioDecimals);
+        });
+        $(".changeable").on("change paste keyup input", function () {
+          $oldWidth = $old.find("input[name=width]").val();
+          $oldHeight = $old.find("input[name=height]").val();
+          $newValue = $new.find("input[name=value]").val();
+          $otherValue = calculateOtherValue(
+            $chosen,
+            $newValue,
+            $oldWidth,
+            $oldHeight
+          );
+          $ratioDecimals = calculateAspectRatioInDecimals(
+            $oldWidth,
+            $oldHeight
+          );
+          $divOtherValue.text($otherValue);
+          $divRatioDecimals.text($ratioDecimals);
+          setCSS($divOtherValue);
+          setCSS($divRatioDecimals);
+          if ($.trim($divOtherValue.html()).length) {
+            $other.show();
+            $ratio.show();
+          }
+        });
+      });
+      $(document).ready(function () {
+        $("form.csrf").prepend(
+          '<input type="hidden" name="CRAFT_CSRF_TOKEN" value="_bQTVJTRYjzCTpzeIG_lTEyQLkhr0t0YqsHLCnkZL8mEgBcmzQIa7o7gWxPNsAlVtgHvjVcftC8BylwpP7eSSMO2qCcWemyz1PdgHqt6c90="/>'
+        );
+      });
+    </script>
+    <noscript class="psa_add_styles"> </noscript>
+    <script data-pagespeed-no-defer>
+      //<![CDATA[
+      (function () {
+        function b() {
+          var a = window,
+            c = e;
+          if (a.addEventListener) a.addEventListener("load", c, !1);
+          else if (a.attachEvent) a.attachEvent("onload", c);
+          else {
+            var d = a.onload;
+            a.onload = function () {
+              c.call(this);
+              d && d.call(this);
+            };
+          }
+        }
+        var f = !1;
+        function e() {
+          if (!f) {
+            f = !0;
+            for (
+              var a = document.getElementsByClassName("psa_add_styles"),
+                c = 0,
+                d;
+              (d = a[c]);
+              ++c
+            )
+              if ("NOSCRIPT" == d.nodeName) {
+                var k = document.createElement("div");
+                k.innerHTML = d.textContent;
+                document.body.appendChild(k);
+              }
+          }
+        }
+        function g() {
+          var a =
+            window.requestAnimationFrame ||
+            window.webkitRequestAnimationFrame ||
+            window.mozRequestAnimationFrame ||
+            window.oRequestAnimationFrame ||
+            window.msRequestAnimationFrame ||
+            null;
+          a
+            ? a(function () {
+                window.setTimeout(e, 0);
+              })
+            : b();
+        }
+        var h = ["pagespeed", "CriticalCssLoader", "Run"],
+          l = this;
+        h[0] in l || !l.execScript || l.execScript("var " + h[0]);
+        for (var m; h.length && (m = h.shift()); )
+          h.length || void 0 === g
+            ? l[m]
+              ? (l = l[m])
+              : (l = l[m] = {})
+            : (l[m] = g);
+      })();
+      pagespeed.CriticalCssLoader.Run();
+      //]]>
+    </script>
+  </body>
+</html>
